@@ -1,0 +1,55 @@
+section.container {
+	max-width: 650px;
+
+	h1 {
+		font-size: 48px;
+		color: $detail-color-3;
+		line-height: 70px;
+		margin-top: 80px;
+	}
+}
+
+form#create-card {
+	margin-top: 40px;
+	max-width: 700px;
+	display: flex;
+
+	input {
+		flex: 1;
+		height: 40px;
+		padding: 0 24px;
+		border-radius: 15px 0 0 15px;
+		color: $detail-color-3;
+		border: 2px solid $detail-color-2;
+		border-right: 0;
+
+		&.error {
+			border-color: $error-color;
+		}
+
+		&::placeholder {
+			color: lighten($detail-color-3, 50)
+		}
+	}
+
+	button {
+		width: 210px;
+		height: 40px;
+		background: $detail-color-2;
+		color: $bg-color;
+		border: 0;
+		border-radius: 0px 15px 15px 0;
+		font-weight: bold;
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: lighten($detail-color-2, 5);
+		}
+	}
+}
+
+.cards {
+	margin-top: 40px;
+	max-width: 900px;
+	@import "card";
+}

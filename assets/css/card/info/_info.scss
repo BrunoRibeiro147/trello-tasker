@@ -1,0 +1,55 @@
+section.card-info {
+	margin-top: 40px;
+
+	header {
+		display: flex;
+		align-items: center;
+
+
+		img {
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+		}
+
+		div {
+			margin-left: 24px;
+
+			strong {
+				font-size: 36px;
+				color: $detail-color-2;
+			}
+
+			p {
+				font-size: 18px;
+				color: $detail-color-3;
+				margin-top: 24px;
+			}
+		}
+	}
+
+	ul {
+		display: flex;
+		list-style: none;
+		margin-top: 40px;
+
+		li {
+			&+li {
+				margin-left: 40px;
+			}
+
+			span {
+				display: block;
+				margin-top: 4px;
+				color: $detail-color-3;
+
+				i {
+					font-size: 20px;
+					color: $detail-color-4
+				}
+			}
+		}
+	}
+}
+
+@import "comments"

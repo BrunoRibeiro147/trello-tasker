@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<%= csrf_meta_tag() %>
+	<%= live_title_tag assigns[:page_title] || "TrelloTasker", suffix: " · Phoenix Framework" %>
+	<link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>" />
+	<script src="https://kit.fontawesome.com/7196531315.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+	<script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+</head>
+
+<body>
+	<div id="root">
+		<header id="main">
+			<strong>Trello Tasker</strong>
+
+			<a href="/">
+				<i class="fa fa-chevron-left">
+					Back
+				</i>
+			</a>
+		</header>
+		<%= @inner_content %>
+	</div>
+</body>
+
+</html>
