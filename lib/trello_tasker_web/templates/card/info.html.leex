@@ -1,37 +1,40 @@
 <section class="card-info">
 	<header>
-		<img src="https://digilandia.io/wp-content/uploads/2020/06/Como-usar-o-Trello.jpg" alt="">
+		<img src="<%= @card.image %>" alt="">
 		<div>
-			<strong>Tarefa de Aprender LiveView</strong>
-			<p>Descrever a tarefa no trello asdmaldmalkdm</p>
+			<strong><%= @card.name %></strong>
+			<p><%= @card.description %></p>
 		</div>
 	</header>
 
 	<ul>
 		<li>
 			<span>
-				<i class="fa fa-clock-o"></i>
-				25-12-2021
+				<i
+					class="fa fa-clock-o <%= (Date.compare(Date.utc_today(), @card.delivery_date) && !@card.completed) && "is-late" || "" %> "></i>
+				<%= @card.delivery_date %>
 			</span>
 		</li>
 		<li>
 			<span>
 				<i class="fa fa-check-circle-o"></i>
-				Done
+				<%= @card.completed && "Done" || "In Progress" %>
 			</span>
 		</li>
 	</ul>
 </section>
 
 <div class="comments">
+	<%= for comment <- @comments do %>
 	<a href="">
 		<div>
-			<strong>Terminar aula de LiveView</strong>
+			<strong> "<%= comment.user %>" </strong>
 			<p>
-				Explicar conceitos e dar exemplos de como funciona o fluco de LiveView
+				"<%= comment.text %>"
 			</p>
 		</div>
 
 		<i class="fa fa-caret-right"></i>
 	</a>
+	<% end %>
 </div>

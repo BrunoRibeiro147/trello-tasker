@@ -1,23 +1,27 @@
 <section class="container">
 	<h1>Monitore os seus cards do Trello</h1>
-	<form action="" id="create-card">
-		<input type="text" placeholder="Informe o número do Card">
-		<button type="submit">Pesquisar</button>
+
+	<%= f = form_for @changeset, "#", id: "create-card", phx_submit: "create" %>
+	<%= text_input f, :path, placeholder: "Informe o número do Card", class: f.errors && f.errors[:path] && "error"%>
+	<%= error_tag f, :path %>
+	<%= submit "Pesquisar", phx_disable_with: "Pesquisando..." %>
 	</form>
 
 	<div class="cards">
-		<a href="">
-			<img src="https://digilandia.io/wp-content/uploads/2020/06/Como-usar-o-Trello.jpg" alt="">
+		<%= for card <- @cards do %>
+		<%= live_redirect to: Routes.card_info_path(@socket, :index, card.card_id) do %>
+		<img src="<%= card.image  %>" alt="">
 
-			<div>
-				<strong>Terminar aula de LiveView</strong>
-				<p>
-					Explicar conceitos e dar exemplos de como funciona o fluco de LiveView
-				</p>
-			</div>
+		<div>
+			<strong><%= card.name  %></strong>
+			<p>
+				<%= card.description  %>
+			</p>
+		</div>
 
-			<i class="fa fa-caret-right"></i>
-		</a>
+		<i class="fa fa-caret-right"></i>
+		<% end %>
+		<% end %>
 	</div>
 
 
